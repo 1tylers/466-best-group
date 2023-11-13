@@ -2,7 +2,7 @@
 
 the best 466 group
 
-Checklist:
+Checklist:  
 [x] ER Diagram  
 
 [x] Relation Schema  
