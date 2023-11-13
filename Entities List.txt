@@ -1,0 +1,21 @@
+ENTITIES LISTS
+User
+  -Email!
+  -Phone
+  -Name
+Employee
+  -EmpID!
+  -Password
+Product
+  -ProductID!
+  -Quantity
+  -Description
+  -Price
+Order
+  -OrderID!
+  -Address
+  -Total
+  -Data
+  -TrackingNumber
+  -Billing
+  -ItemCount
