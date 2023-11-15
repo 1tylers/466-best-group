@@ -4,7 +4,8 @@ the best 466 group
 
 Checklist:  
 [x] ER Diagram  
-[ ] Relation Schema  
+[x] Relation Schema
+[x] SQL Script
 [ ] SQL Database  
 [ ] HTML/PHP Implementation  
 
