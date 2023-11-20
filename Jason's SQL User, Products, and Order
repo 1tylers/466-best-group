@@ -1,5 +1,5 @@
 INSERT INTO User (Email, Phone, Name) VALUES
-  (IAmCSCI240@gmail.com, 1112223333, Parker),
+  (IAmCSCI240@gmail.com, 1112223333, Parker);
   
 
 INSERT INTO Product (ProductID, Quantity, Description, Price) VALUES
