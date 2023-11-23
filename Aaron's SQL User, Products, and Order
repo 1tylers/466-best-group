@@ -1,0 +1,26 @@
+INSERT INTO USER
+VALUES (
+'YippeeSkippee69@yahoo.com',
+'8659721617',
+'Sully'
+);
+
+INSERT INTO PRODUCT
+VALUES 
+('80439252', '30', 'Ground Coffee Beans', '20.99'),
+('80439253', '100', 'Espresso Cups', '10.99'),
+('80439254', '10', 'Cute Aprons', '150.99'),
+('80439255', '69', 'Half-Eaten Bread', '27.99'),
+('80439256', '4321', 'Ice Cubes', '1.99');
+
+INSERT INTO ORDER
+VALUES (
+'20283745',
+'178 Ooga Booga Blvd',
+'160.94',
+'1234567891234567',
+'12/25/2023',
+'6',
+'YippeeSkippee69@yahoo.com'
+);
+#bought 1 Apron and 5 Ice Cubes
