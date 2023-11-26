@@ -1,0 +1,7 @@
+INSERT INTO User
+	Values(mjordan@gmail.com,7042268722, Michael Jordan);
+INSERT INTO Products
+	Values(11238962,150, 'High-performance fishing rod with lightweight design', 89.99),
+		(13457495,50, 'Stainless steel 4-slice toaster with adjustable toasting settings’,39.95),
+		(28483748,30, 'Wireless over-ear headphones with noise cancellation’, 96.00),
+		(47392804, ‘Wireless vacuuming robot’	,68.00);
