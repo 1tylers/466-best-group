@@ -6,5 +6,5 @@ INSERT INTO Products
 		(28483748,30, 'Wireless over-ear headphones with noise cancellation’, 96.00),
 		(47392804, ‘Wireless vacuuming robot’	,68.00);
 INSERT INTO Order (OrderID, Address, Total, BillingInfo, Datee, ItemCount, Email) VALUES
-  (14283745, 1201 Apple Tree rd,293.94, 4235759062038462, 11/30/2023, 4, IAmCSCI240@gmail.com);
+  (14283745, 1201 Apple Tree rd,293.94, 4235759062038462, 11/30/2023, 4, mjordan@gmail.com);
 #one of each 
