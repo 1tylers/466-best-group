@@ -1,9 +1,9 @@
-<!--- Group Project ~ CSCI466 																	--->
-<!--- website.php																				--->
-<!--- Aaron Arreola, Calvin Darley, Eli Gallegos, Jason Lan, Tyler Stenberg						--->
-<!--- Purpose: 																					--->
+<!--- Group Project ~ CSCI466 									--->
+<!--- website.php										--->
+<!--- Aaron Arreola, Calvin Darley, Eli Gallegos, Jason Lan, Tyler Stenberg			--->
+<!--- Purpose: 											--->
 <!--- This will be the main page of the website where different functions can be used and other --->
-<!--- pages for the assignment can be reached here												--->
+<!--- pages for the assignment can be reached here						--->
 <html>
 	<head>
 		<title> Main Page - Funky Shop </title>
