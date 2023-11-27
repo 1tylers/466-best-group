@@ -11,11 +11,13 @@
 	<body>
 		<h1> Funky Shop </h1>
 		<!--- Stuff that we should probably include sooner or later --->
+		<!--- Some kind of link to a product page --->
+		<a href="productPage.php"> PRODUCTS </a>
 		
-		<!--- Ideally some link to find products --->
-
 		<!--- Get to shopping cart where they can finish transactions, etc... --->
+		<a href="cartPage.php"> SHOPPING CART </a>
 
 		<!--- Link to login to account (split between user and employee views for the assignment) --->
+		<a href="loginPage"> LOGIN </a>
 	</body>
 </html>
