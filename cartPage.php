@@ -10,7 +10,7 @@ $dsn = "mysql:host=courses;dbname=z1968549";
 
 // Test the connection
 try {
-    $pdo = new PDO($dsn, "z1968549", "2004Jul30");
+    $pdo = new PDO($dsn, $username, $password);
 } catch (PDOexception $e) {
     echo "Connection to the database failed: " . $e->getMessage();
 }
