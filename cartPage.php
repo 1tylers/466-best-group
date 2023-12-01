@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Update the quantity in the session
         foreach ($_POST['quantity'] as $product_id => $quantity) {
             // Validate quantity (you might want to add additional validation)
-            //$quantity = max(0, intval($quantity));
+            
             $_SESSION['Add'][$product_id] = $quantity;
         }
     }
@@ -49,11 +49,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "</tr>";
 
         foreach ($_SESSION['Add'] as $product_id => $quantity) {
-            $sql = "SELECT Description, Price FROM Product WHERE ProductID=$product_id";
+            $sql = "SELECT Quantity, Description, Price FROM Product WHERE ProductID=$product_id";
             $result = $pdo->query($sql);
 
             if ($result->rowCount() > 0) {
                 $row = $result->fetch(PDO::FETCH_ASSOC);
+                $availableQuantity=$row['Quantity'];
                 $description = $row['Description'];
                 $price = $row['Price'];
                 $totalItem = $quantity * $price;
@@ -61,7 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 echo "<tr>";
                 echo "<td>$description</td> ";
-               echo "<td><input type='number' name='quantity[$product_id]' value='$quantity' min='1'></td> ";
+               echo "<td><input type='number' name='quantity[$product_id]' value='$quantity' min='1' max='$availableQuantity'></td>";
+
                 echo "<td>$price </td>";
                 echo "<td>$totalItem </td>";
                 echo "<td><button type='submit' name='delete' value='$product_id'>X</button></td>";
