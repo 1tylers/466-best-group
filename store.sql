@@ -31,6 +31,7 @@ CREATE TABLE PlacedOrder (
 	Email VARCHAR(40),
 	OrderID CHAR(8),
 	TrackingNo CHAR(20),
+	Status VARCHAR(20),
 	FOREIGN KEY (Email) REFERENCES User(Email),
 	FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
 	PRIMARY KEY (Email, OrderID)
@@ -39,7 +40,6 @@ CREATE TABLE PlacedOrder (
 CREATE TABLE ProductStored (
 	OrderID CHAR(8),
 	ProductID CHAR(8),
-	Status CHAR(1),
 	FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
 	FOREIGN KEY (ProductID) REFERENCES Product(ProductID),
 	PRIMARY KEY (OrderID, ProductID)
