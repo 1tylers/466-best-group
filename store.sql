@@ -39,6 +39,7 @@ CREATE TABLE PlacedOrder (
 CREATE TABLE ProductStored (
 	OrderID CHAR(8),
 	ProductID CHAR(8),
+	Status CHAR(1),
 	FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
 	FOREIGN KEY (ProductID) REFERENCES Product(ProductID),
 	PRIMARY KEY (OrderID, ProductID)
