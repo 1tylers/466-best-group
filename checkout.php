@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // put into placed order table
         $trackingNo = uniqid();
-        $status = "Processing";
+        $status = "Recieved";
         $insertPlacedOrderSQL = "INSERT INTO PlacedOrder (Email, OrderID, TrackingNo, Status) 
                                 VALUES ('$email', '$orderID', '$trackingNo', '$status')";
         $pdo->query($insertPlacedOrderSQL);
