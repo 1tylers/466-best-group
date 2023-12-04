@@ -21,6 +21,7 @@ $prod_id = "";
 
 if (isset($_POST["Add"])) {
     $qty = $_POST["quantity"];
+    
     $product_id = $_POST["product_id"];
 
     // Adding to cart
@@ -28,9 +29,27 @@ if (isset($_POST["Add"])) {
         $_SESSION["Add"] = [];
     }
     
-    $_SESSION["Add"][$product_id] += $qty;
-    header("location:cartPage.php");
-    exit();
+    //check quantity added
+    $result = $pdo->query("SELECT Quantity FROM Product WHERE ProductID='$product_id'");
+    
+    //get value
+    while ($row = $result->fetch(PDO::FETCH_ASSOC))
+    {
+      $qtyCheck = $row['Quantity'];
+      $row++;
+    }//end of while loop
+
+    //check if quantity is valid
+    if ($qtyCheck >= (($_SESSION["Add"][$product_id]+$qty)))
+    {
+     $_SESSION["Add"][$product_id] += $qty;
+      header("location:cartPage.php");
+      exit(); 
+    }//end of if statement
+    else
+    {
+      echo "Error::Max Quantity for item is $qtyCheck";  
+    }//end of else statement
 }
 
 ?>
@@ -108,14 +127,18 @@ if (isset($_POST["Add"])) {
 
 						//get the ProductID
 						$PID = $row['ProductID'];
-
+           					$availableQuantity=$row['Quantity'];
 						//form to get the quantity to add to cart
 						echo "<form method='POST' action='website.php'>";
 							echo "<input type='hidden' name='product_id' value='$PID'/>";
-							echo "<td> <input type='text' name='quantity'/> </td>";
+              						echo "<td><input type='number' name='quantity' value='quantity' min='1' max='$availableQuantity'></td>";
+							//echo "<td> <input type='text' name='quantity'/> </td>";
 							echo "<td> <input type='submit' name='Add' value='ADD'/> </td>";
 						echo "</form>";
-
+					              echo "<form method='GET' action='description.php'>";
+					              echo "<input type='hidden' name='product_id' value='$PID'/>";
+					              echo "<td><input type='submit' name='view_description' value='View Description' /></td>";
+					              echo "</form>";
 					//close the row
 					echo "</tr>";
 
@@ -131,3 +154,8 @@ if (isset($_POST["Add"])) {
 
 	</body>
 </html>
+
+
+
+
+
