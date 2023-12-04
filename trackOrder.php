@@ -32,3 +32,44 @@
 
 
 
+            // Check if a matching pair is found
+            if ($statement->rowCount() > 0) {
+                // Fetch the tracking number and the status
+                $row = $statement->fetch(PDO::FETCH_ASSOC);
+                $trackingNumber = $row['TrackingNo'];
+                $status = $row['Status'];
+
+                // Display the tracking number
+                echo "<p>Tracking Number: $trackingNumber</p>";
+
+                // Display the status of the order
+                echo "<p>Status of Order: $status</p>";
+            }
+            else{
+                // Display a message if no match is found
+                echo "<p>No matching order found.</p>";
+            }
+        } catch (PDOException $e) {
+            // Display an error message
+            echo "Error: " . $e->getMessage();
+        }
+
+        // Close the database connection
+        if (isset($pdo)) {
+            $pdo = null;
+        }
+    }
+    ?>
+
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+        <label for="orderID">Order ID:</label>
+        <input type="text" id="orderID" name="orderID" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <input type="submit" value="Check Order">
+    </form>
+</body>
+</html>
+
