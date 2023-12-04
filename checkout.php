@@ -2,7 +2,7 @@
 session_start();
 
 
-$dsn = "mysql:host=co	urses;dbname=z1968549";
+$dsn = "mysql:host=courses;dbname=z1968549";
 
 try {
     $pdo = new PDO($dsn, "z1968549", "2004Jul30");
@@ -12,6 +12,7 @@ try {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['submit_order'])) {
+     try {
         // Get user info
         $address = $_POST['address'];
         $cardNumber = $_POST['card_number'];
@@ -21,21 +22,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $total = isset($_SESSION['total']) ? $_SESSION['total'] : 0;
 
         // create an order id
-        $orderID = uniqid();
+        $orderID = rand(10000000,99999999);
 
         // Get date
         $date = date("Y-m-d");
 
         // Get the number of items in the order
-        $itemCount = 10 //count($_SESSION['Add']);
+        $itemCount = 10; //count($_SESSION['Add']);
 
         // Directly insert values into the SQL query
         $insertOrderSQL = "INSERT INTO Orders (OrderID, Address, Total, BillingInfo, Datee, ItemCount, Email) 
                            VALUES ('$orderID', '$address', '$total', '$cardNumber', '$date', '$itemCount', '$email')";
         $pdo->query($insertOrderSQL);
-
+        echo "$orderID, $address, $total, $cardNumber, $date, $itemCount, $email";
         // put into placed order table
-        $trackingNo = uniqid();
+        $trackingNo = rand(100000,999999);
         $status = "Recieved";
         $insertPlacedOrderSQL = "INSERT INTO PlacedOrder (Email, OrderID, TrackingNo, Status) 
                                 VALUES ('$email', '$orderID', '$trackingNo', '$status')";
@@ -47,6 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //header("Location: orderdetails.php");
         exit();
     }
+    catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+    
+    
 }
 
 /*
@@ -102,3 +109,5 @@ function getProductsDetails($cart, $pdo) {
     </form>
 </body>
 </html>
+    
+    
