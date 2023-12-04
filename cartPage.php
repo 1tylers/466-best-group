@@ -36,10 +36,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Shopping Cart</title>
   </head>
   <body>
+  <h1>Shopping Cart</h1>
   <form action="cartPage.php" method="post">
     <?php
   
         $total = 0;
+        $items=0;
         echo "<table>";
         echo "<tr>";
         echo "<th>Product Name </th> ";
@@ -59,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $price = $row['Price'];
                 $totalItem = $quantity * $price;
                 $total += $totalItem;
-
+                $items+=$quantity;
                 echo "<tr>";
                 echo "<td>$description</td> ";
                echo "<td><input type='number' name='quantity[$product_id]' value='$quantity' min='1' max='$availableQuantity'></td>";
@@ -70,8 +72,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "</tr>";
             }
         }
-   
-
+    $_SESSION['total'] = $total;
+    $_SESSION['items'] = $items;
     echo "<tr>";
     echo "<td> Total:</td>";
     echo "<td> $total</td>";
@@ -89,3 +91,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
   </body>
 </html>
+
