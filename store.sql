@@ -30,7 +30,7 @@ CREATE TABLE Orders (
 CREATE TABLE PlacedOrder (
 	Email VARCHAR(40),
 	OrderID CHAR(8),
-	TrackingNo CHAR(20),
+	TrackingNo CHAR(6),
 	Status VARCHAR(20),
 	FOREIGN KEY (Email) REFERENCES User(Email),
 	FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
