@@ -1,14 +1,13 @@
 <?php
 session_start();
 
-include 'info.php';
 
-$dsn = "mysql:host=courses;dbname=z1968549";
+$dsn = "mysql:host=co	urses;dbname=z1968549";
 
 try {
-    $pdo = new PDO($dsn, $username, $password);
-} catch (PDOException $e) {
-    echo "Connection to the database failed: " . $e->getMessage();
+    $pdo = new PDO($dsn, "z1968549", "2004Jul30");
+} catch (PDOexception $e) {
+    echo "Connection to database failed: " . $e->getMessage();
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -28,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $date = date("Y-m-d");
 
         // Get the number of items in the order
-        $itemCount = count($_SESSION['Add']);
+        $itemCount = 10 //count($_SESSION['Add']);
 
         // Directly insert values into the SQL query
         $insertOrderSQL = "INSERT INTO Orders (OrderID, Address, Total, BillingInfo, Datee, ItemCount, Email) 
@@ -42,11 +41,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 VALUES ('$email', '$orderID', '$trackingNo', '$status')";
         $pdo->query($insertPlacedOrderSQL);
 
+        //$_SESSION['order_details'] = getProductsDetails($_SESSION['Add'], $pdo);
+
         // go to order info after placed order
-        header("Location: orderdetails.php");
+        //header("Location: orderdetails.php");
         exit();
     }
 }
+
+/*
+function getProductsDetails($cart, $pdo) {
+    $productsDetails = [];
+
+    foreach ($cart as $product_id => $quantity) {
+        $sql = "SELECT Quantity, Description, Price FROM Product WHERE ProductID=$product_id";
+        $result = $pdo->query($sql);
+
+        if ($result->rowCount() > 0) {
+            $row = $result->fetch(PDO::FETCH_ASSOC);
+            $description = $row['Description'];
+            $price = $row['Price'];
+            $totalItem = $quantity * $price;
+
+            $productsDetails[] = [
+                'description' => $description,
+                'quantity' => $quantity,
+                'price' => $price,
+                'totalItem' => $totalItem
+            ];
+        }
+    }
+
+    return $productsDetails;
+}
+*/
 ?>
 
 <html>
@@ -55,6 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <h2>Checkout</h2>
+
     <form action="checkout.php" method="post">
         <label for="address">Address:</label>
         <input type="text" name="address" required><br>
