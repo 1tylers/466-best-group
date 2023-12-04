@@ -30,19 +30,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Get the number of items in the order
         $itemCount = count($_SESSION['Add']);
 
-        // put into order table
+        // Directly insert values into the SQL query
         $insertOrderSQL = "INSERT INTO Orders (OrderID, Address, Total, BillingInfo, Datee, ItemCount, Email) 
-                           VALUES (?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $pdo->prepare($insertOrderSQL);
-        $stmt->execute([$orderID, $address, $total, $cardNumber, $date, $itemCount, $email]);
+                           VALUES ('$orderID', '$address', '$total', '$cardNumber', '$date', '$itemCount', '$email')";
+        $pdo->query($insertOrderSQL);
 
         // put into placed order table
         $trackingNo = uniqid();
         $status = "Processing";
         $insertPlacedOrderSQL = "INSERT INTO PlacedOrder (Email, OrderID, TrackingNo, Status) 
-                                VALUES (?, ?, ?, ?)";
-        $stmt = $pdo->prepare($insertPlacedOrderSQL);
-        $stmt->execute([$email, $orderID, $trackingNo, $status]);
+                                VALUES ('$email', '$orderID', '$trackingNo', '$status')";
+        $pdo->query($insertPlacedOrderSQL);
 
         // go to order info after placed order
         header("Location: orderdetails.php");
