@@ -11,6 +11,7 @@ CREATE TABLE User (
 
 CREATE TABLE Product (
 	ProductID CHAR(8) PRIMARY KEY,
+	Name VARCHAR(30) NOT NULL,
 	Quantity INT NOT NULL,
 	Description VARCHAR(500),
 	Price DECIMAL(4,2) NOT NULL
@@ -21,7 +22,7 @@ CREATE TABLE Orders (
 	Address VARCHAR(50) NOT NULL,
 	Total DECIMAL(5,2) NOT NULL,
 	BillingInfo CHAR(16) NOT NULL,
-	Datee DATE NOT NULL,
+	Date DATE NOT NULL,
 	ItemCount INT NOT NULL,
 	Email VARCHAR(40),
 	FOREIGN KEY (Email) REFERENCES User(Email)
