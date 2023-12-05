@@ -22,7 +22,7 @@ CREATE TABLE Orders (
 	Address VARCHAR(50) NOT NULL,
 	Total DECIMAL(5,2) NOT NULL,
 	BillingInfo CHAR(16) NOT NULL,
-	Date DATE NOT NULL,
+	Datee DATE NOT NULL,
 	ItemCount INT NOT NULL,
 	Email VARCHAR(40),
 	FOREIGN KEY (Email) REFERENCES User(Email)
