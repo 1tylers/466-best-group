@@ -72,7 +72,7 @@ if (isset($_POST["Add"])) {
 		<br>
 
 		<!--- Link to login to account (split between user and employee views for the assignment) --->
-		<a href="employee.php"> EMPLOYEE LOGIN </a>
+		<a href="login.php"> EMPLOYEE LOGIN </a>
 		<br>
 
 		<!--- Track Order --->
@@ -154,6 +154,11 @@ if (isset($_POST["Add"])) {
 
 	</body>
 </html>
+
+
+
+
+
 
 
 
