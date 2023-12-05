@@ -30,6 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Get the number of items in the order
         $itemCount = 10; //count($_SESSION['Add']);
 
+        $insertUserSQL = "INSERT INTO User (Email, Phone, Name) 
+                              VALUES ('$email', '$phoneNumber', '$name')
+                              ON DUPLICATE KEY UPDATE Name = '$name'";
+            $pdo->query($insertUserSQL);
+
         // Directly insert values into the SQL query
         $insertOrderSQL = "INSERT INTO Orders (OrderID, Address, Total, BillingInfo, Datee, ItemCount, Email) 
                            VALUES ('$orderID', '$address', '$total', '$cardNumber', '$date', '$itemCount', '$email')";
@@ -40,12 +45,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $status = "Recieved";
         $insertPlacedOrderSQL = "INSERT INTO PlacedOrder (Email, OrderID, TrackingNo, Status) 
                                 VALUES ('$email', '$orderID', '$trackingNo', '$status')";
+
+        // Insert product information into the Product table
+            foreach ($_SESSION['Add'] as $product_id => $quantity) {
+                $insertProductSQL = "INSERT INTO ProductStored (OrderID, ProductID) 
+                                     VALUES ('$orderID', '$product_id')";
+                $pdo->query($insertProductSQL);
+            }
+        
         $pdo->query($insertPlacedOrderSQL);
 
-        //$_SESSION['order_details'] = getProductsDetails($_SESSION['Add'], $pdo);
-
-        // go to order info after placed order
-        //header("Location: orderdetails.php");
+        
         exit();
     }
     catch (PDOException $e) {
@@ -56,32 +66,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 }
 
-/*
-function getProductsDetails($cart, $pdo) {
-    $productsDetails = [];
-
-    foreach ($cart as $product_id => $quantity) {
-        $sql = "SELECT Quantity, Description, Price FROM Product WHERE ProductID=$product_id";
-        $result = $pdo->query($sql);
-
-        if ($result->rowCount() > 0) {
-            $row = $result->fetch(PDO::FETCH_ASSOC);
-            $description = $row['Description'];
-            $price = $row['Price'];
-            $totalItem = $quantity * $price;
-
-            $productsDetails[] = [
-                'description' => $description,
-                'quantity' => $quantity,
-                'price' => $price,
-                'totalItem' => $totalItem
-            ];
-        }
-    }
-
-    return $productsDetails;
-}
-*/
 ?>
 
 <html>
@@ -110,4 +94,4 @@ function getProductsDetails($cart, $pdo) {
 </body>
 </html>
     
-    
+
