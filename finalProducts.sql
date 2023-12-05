@@ -7,7 +7,7 @@ VALUES
 ('80439256', '43', 'Ice Cubes', 'Premium ice cubes from the Pacific Ocean', '12.99'),
 ('56721469', '32', 'Vitamin C Tablets - Single', 'Single Serving health supplements because we do NOT go outside', '12.99'),
 ('68259786', '45', 'Nike Ankle Sock - Single', 'Probably the cheapest thing we sell here', '04.99'),
-('32184672', '10', 'Fender Stratocaster - MIM', '90.99'),
+('32184672', '10', 'Fender Stratocaster - MIM', 'I dont know what this is but you should buy it because it will make me money', '90.99'),
 ('59813587', '14', 'Empty Water Bottle', 'I drank from this bottle, that is why it is so expensive', '17.99'),
 ('56842115', '89', 'Coffee Cake', 'Super Yummy Coffee Cake that is hand made from our kitchen in the store', '14.99'),
 ('11238962', '15', 'Fishing Rod','High-performance fishing rod with lightweight design', '89.99'),
