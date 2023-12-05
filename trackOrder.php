@@ -24,7 +24,7 @@
             $pdo = new PDO($dsn, $username, $password);
 
             // Prepare and execute SQL query
-            $sql = "SELECT TrackingNo, Status FROM PlacedOrder WHERE OrderID = :orderID AND Email = :email";
+            $sql = "SELECT TrackingNo, Status, Total FROM PlacedOrder WHERE OrderID = :orderID AND Email = :email";
             $statement = $pdo->prepare($sql);
             $statement->bindParam(':orderID', $orderID);
             $statement->bindParam(':email', $email);
@@ -38,17 +38,37 @@
                 $row = $statement->fetch(PDO::FETCH_ASSOC);
                 $trackingNumber = $row['TrackingNo'];
                 $status = $row['Status'];
+                $total = $rowOrder['Total'];
 
                 // Display the tracking number
                 echo "<p>Tracking Number: $trackingNumber</p>";
 
                 // Display the status of the order
                 echo "<p>Status of Order: $status</p>";
+
+                //Display the total for the order
+                echo "<p>Total for Order: $total</p>";
             }
             else{
                 // Display a message if no match is found
                 echo "<p>No matching order found.</p>";
             }
+
+            // Make a query to calculate the total of all orders made by a specific user
+            $sqlTotal = "SELECT SUM(Total) AS GrandTotal FROM PlacedOrder WHERE Email = :email";
+            $statementTotal = $pdo->prepare($sqlTotal);
+            $statementTotal->bindParam(':email', $email);
+            $statementTotal->execute();
+
+            // Fetch the total for all orders made by the user
+            $rowTotal = statementTotal->fetch(PDO::FETCH_ASSOC);
+            $grandTotal = roeTotal['GrandTotal'];
+
+            // Display the total for all orders made by the user
+            echo "<p>All the money you have given to us. For now...,</p>";
+            echo "<p>Grand Total for All Orders: $grandTotal</p>";
+
+            
         } catch (PDOException $e) {
             // Display an error message
             echo "Error: " . $e->getMessage();
