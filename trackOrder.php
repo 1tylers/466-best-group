@@ -62,7 +62,7 @@
 
             // Fetch the total for all orders made by the user
             $rowTotal = statementTotal->fetch(PDO::FETCH_ASSOC);
-            $grandTotal = roeTotal['GrandTotal'];
+            $grandTotal = rowTotal['GrandTotal'];
 
             // Display the total for all orders made by the user
             echo "<p>All the money you have given to us. For now...,</p>";
