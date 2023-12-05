@@ -18,17 +18,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $cardNumber = $_POST['card_number'];
         $email = $_POST['email'];
 
-        // Get total from the session
-        $total = isset($_SESSION['total']) ? $_SESSION['total'] : 0;
-
         // create an order id
         $orderID = rand(10000000,99999999);
 
         // Get date
         $date = date("Y-m-d");
 
-        // Get the number of items in the order
-        $itemCount = 10; //count($_SESSION['Add']);
+        // Retrieve total and item count from the previous cart page
+        $total = isset($_SESSION['total']) ? $_SESSION['total'] : 0;
+        $itemCount = isset($_SESSION['items']) ? $_SESSION['items'] : 0;
 
         $insertUserSQL = "INSERT INTO User (Email, Phone, Name) 
                               VALUES ('$email', '$phoneNumber', '$name')
