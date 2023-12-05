@@ -1,4 +1,4 @@
-INSERT INTO PRODUCT
+INSERT INTO Product
 VALUES 
 ('80439252', '30', 'Ground Coffee Beans', '20lbs of high quality Coffee Beans','20.99'),
 ('80439253', '10', 'Espresso Cups', 'Cups of Espresso, very high quality I swear', '10.99'),
