@@ -17,6 +17,6 @@ VALUES
 ('74927933', '50', 'Ball Point Pen', 'Description here', '99.99'),
 ('74928990', '20', 'Pencil Lead',  'Description here','50.99'),
 ('74925583', '29', 'Mechanical Pencil', 'Description here', '79.99'),
-('74921439', '30', 'Number 2 Pencils', 'Description here', '25.99')
+('74921439', '30', 'Number 2 Pencils', 'Description here', '25.99'),
 ('54256586', '45', 'McDonalds Cheeseburger', 'Description here', '10.99'),
 ('59874565', '86', 'Aarons Glasses', 'Description here', '20.00');
