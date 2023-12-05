@@ -55,6 +55,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $pdo->query($insertPlacedOrderSQL);
 
+            session_unset();
+            session_destroy();
+
+            echo "<h1>Thanks for your purchase!</h1>";
+
             exit();
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
@@ -94,5 +99,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 </body>
 </html>
-
 
