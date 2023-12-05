@@ -11,8 +11,8 @@ CREATE TABLE User (
 
 CREATE TABLE Product (
 	ProductID CHAR(8) PRIMARY KEY,
-	Name VARCHAR(30) NOT NULL,
 	Quantity INT NOT NULL,
+	Name VARCHAR(30) NOT NULL,
 	Description VARCHAR(500),
 	Price DECIMAL(4,2) NOT NULL
 );
