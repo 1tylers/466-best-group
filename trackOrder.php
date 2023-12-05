@@ -54,19 +54,20 @@
                 echo "<p>No matching order found.</p>";
             }
 
-            // Make a query to calculate the total of all orders made by a specific user
+            // Query to calculate the total of all orders made by a specific user
             $sqlTotal = "SELECT SUM(Total) AS GrandTotal FROM PlacedOrder WHERE Email = :email";
-            $statementTotal = $pdo->prepare($sqlTotal);
-            $statementTotal->bindParam(':email', $email);
-            $statementTotal->execute();
+            $stmtTotal = $pdo->prepare($sqlTotal);
+            $stmtTotal->bindParam(':email', $email);
+            $stmtTotal->execute();
 
             // Fetch the total for all orders made by the user
-            $rowTotal = statementTotal->fetch(PDO::FETCH_ASSOC);
-            $grandTotal = rowTotal['GrandTotal'];
+            $rowTotal = $stmtTotal->fetch(PDO::FETCH_ASSOC);
+            $grandTotal = $rowTotal['GrandTotal'];
 
             // Display the total for all orders made by the user
-            echo "<p>All the money you have given to us. For now...,</p>";
             echo "<p>Grand Total for All Orders: $grandTotal</p>";
+            echo "<p>All the money you have given to us. For now...,</p>";
+
 
             
         } catch (PDOException $e) {
