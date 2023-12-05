@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($result->rowCount() > 0) {
                 $row = $result->fetch(PDO::FETCH_ASSOC);
                 $availableQuantity=$row['Quantity'];
-                $description = $row['Description'];
+                $description = $row['Name'];
                 $price = $row['Price'];
                 $totalItem = $quantity * $price;
                 $total += $totalItem;
