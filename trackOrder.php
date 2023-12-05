@@ -19,7 +19,7 @@
 
         try {
             // Connect to MariaDB using PDO
-            include 'info.php';
+            //include 'info.php';
             $dsn = "mysql:host=courses;dbname=z1968549";
             $pdo = new PDO($dsn, "z1968549", "2004Jul30");
 
