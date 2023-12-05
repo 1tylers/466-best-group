@@ -112,7 +112,7 @@ if (isset($_POST["Add"])) {
 				//print out the headers of the table
 				echo "<tr>";
 					echo "<th> NAME </th>";
-					echo "<th> PRODUCTID </th>";
+					echo "<th> PRICE </th>";
 					echo "<th> QUANTITY </th>";
 				echo "</tr>";
 
@@ -122,23 +122,23 @@ if (isset($_POST["Add"])) {
 					echo "<tr>";
 
 						//fill row with data
-						echo "<td> {$row['Description']} </td>";
-						echo "<td> {$row['ProductID']} </td>";
+						echo "<td> {$row['Name']} </td>";
+						echo "<td> {$row['Price']} </td>";
 
 						//get the ProductID
 						$PID = $row['ProductID'];
-           					$availableQuantity=$row['Quantity'];
+            $availableQuantity=$row['Quantity'];
 						//form to get the quantity to add to cart
 						echo "<form method='POST' action='website.php'>";
 							echo "<input type='hidden' name='product_id' value='$PID'/>";
-              						echo "<td><input type='number' name='quantity' value='quantity' min='1' max='$availableQuantity'></td>";
+              echo "<td><input type='number' name='quantity' value='quantity' min='1' max='$availableQuantity'></td>";
 							//echo "<td> <input type='text' name='quantity'/> </td>";
 							echo "<td> <input type='submit' name='Add' value='ADD'/> </td>";
 						echo "</form>";
-					              echo "<form method='GET' action='description.php'>";
-					              echo "<input type='hidden' name='product_id' value='$PID'/>";
-					              echo "<td><input type='submit' name='view_description' value='View Description' /></td>";
-					              echo "</form>";
+              echo "<form method='GET' action='description.php'>";
+              echo "<input type='hidden' name='product_id' value='$PID'/>";
+              echo "<td><input type='submit' name='view_description' value='View Description' /></td>";
+              echo "</form>";
 					//close the row
 					echo "</tr>";
 
@@ -154,6 +154,9 @@ if (isset($_POST["Add"])) {
 
 	</body>
 </html>
+
+
+
 
 
 
