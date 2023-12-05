@@ -3,7 +3,7 @@
 session_start();
 
 // Include necessary files
-include 'info.php';
+
 
 // Name of the DB
 $dsn = "mysql:host=courses;dbname=z1968549";
@@ -62,22 +62,46 @@ if (isset($_POST["Add"])) {
 <html>
 	<head>
 		<title> Main Page - Funky Shop </title>
+		<meta charset="UTF-8">
+   	 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   	 	<link rel="stylesheet" type="text/css" href="styles.css">
+
+    	<!-- Bootstrap CSS -->
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
 	</head>
 	<body>
-		<h1> Funky Shop </h1>
-		<!--- Stuff that we should probably include sooner or later --->
 
-		<!--- Get to shopping cart where they can finish transactions, etc... --->
-		<a href="cartPage.php"> SHOPPING CART </a>
-		<br>
 
-		<!--- Link to login to account (split between user and employee views for the assignment) --->
-		<a href="login.php"> EMPLOYEE LOGIN </a>
-		<br>
+		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #643843">
+   	 		<a class="navbar-brand" href="website.php">Funky Shop</a>
+    		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        		<span class="navbar-toggler-icon"></span>
+    		</button>
+    		<div class="collapse navbar-collapse" id="navbarNav">
+        		<ul class="navbar-nav ml-auto">
+            		<li class="nav-item active">
+                		<a class="nav-link" href="website.php">Home <span class="sr-only">(current)</span></a>
+            		</li>
+            		<li class="nav-item">
+               			 <a class="nav-link" href="login.php">Employee Login</a>
+            		</li>
+            		<li class="nav-item">
+                		<a class="nav-link" href="trackOrder.php">Track Your Order</a>
+            		</li>
+            		<li class="nav-item">
+                		<a class="nav-link" href="cartPage.php">Cart</a>
+        			</li>
+        		</ul>
+    		</div>
+		</nav>
 
-		<!--- Track Order --->
-		<a href="trackOrder.php"> Track Order </a>
-		<br>
+		<!-- Bootstrap JS and dependencies -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 
 		<!--- Product List--->
 		<!--- Show Product, Description, Add Quantity, Add Order --->
@@ -86,7 +110,7 @@ if (isset($_POST["Add"])) {
 		<?php
 			//login file
       //session_start();
-			include 'info.php';
+			//include 'info.php';
 
 			//name of the DB
 			$dsn = "mysql:host=courses;dbname=z1968549";
@@ -102,12 +126,22 @@ if (isset($_POST["Add"])) {
 			} //end of catch statement
 		?>
 
+		<div class="background-home">
+        	<div class="background-text-home-container">
+            	<h1>Welcome to Funky Shop</h1>
+            	<br>
+            	<p> bruh  </p>
+            	<br>
+        	</div>
+    	</div>
+
+		<br>
 		<h2> Product List </h2>
 		<!--- Execute Query --->
 		<?php
 			$result = $pdo->query("SELECT * FROM Product WHERE Quantity > 0");
 
-			echo "<table border='1'>";
+			echo "<table>";
 
 				//print out the headers of the table
 				echo "<tr>";
@@ -154,9 +188,6 @@ if (isset($_POST["Add"])) {
 
 	</body>
 </html>
-
-
-
 
 
 
