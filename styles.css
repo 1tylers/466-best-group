@@ -1,0 +1,47 @@
+
+h2 {
+	color: black;
+	text-align: center;
+}
+
+
+.background-home {
+    background-color: #99627A;
+    background-size: cover;
+
+    padding-top: 150px;
+    padding-bottom: 150px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-text-home-container {
+    color: white;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    max-width: 600px;
+    align-items: center;
+}
+
+table {
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	align-items: center;
+	border: 2px solid #99627A;
+}
+
+.login-center {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.login-text {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
