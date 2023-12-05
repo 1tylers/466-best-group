@@ -20,8 +20,8 @@
         try {
             // Connect to MariaDB using PDO
             include 'info.php';
-            $dsn = "mysql:host=courses;dbname=$dbname";
-            $pdo = new PDO($dsn, $username, $password);
+            $dsn = "mysql:host=courses;dbname=z1968549";
+            $pdo = new PDO($dsn, "z1968549", "2004Jul30");
 
             // Prepare and execute SQL query
             $sql = "SELECT TrackingNo, Status, Total FROM PlacedOrder WHERE OrderID = :orderID AND Email = :email";
