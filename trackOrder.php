@@ -22,14 +22,25 @@
             //include 'info.php';
             $dsn = "mysql:host=courses;dbname=z1968549";
             $pdo = new PDO($dsn, "z1968549", "2004Jul30");
-
+/*
             // Prepare and execute SQL query
             $sql = "SELECT TrackingNo, Status, Total FROM PlacedOrder WHERE OrderID = :orderID AND Email = :email";
             $statement = $pdo->prepare($sql);
             $statement->bindParam(':orderID', $orderID);
             $statement->bindParam(':email', $email);
             $statement->execute();
+*/
 
+            // Prepare and execute SQL query with JOIN
+            $sql = "SELECT PlacedOrder.TrackingNo, PlacedOrder.Status, Order.Total 
+                    FROM PlacedOrder 
+                    JOIN Order ON PlacedOrder.OrderID = Order.OrderID 
+                    WHERE PlacedOrder.OrderID = :orderID AND PlacedOrder.Email = :email";
+            
+            $statement = $pdo->prepare($sql);
+            $statement->bindParam(':orderID', $orderID);
+            $statement->bindParam(':email', $email);
+            $statement->execute();
 
 
             // Check if a matching pair is found
@@ -53,7 +64,7 @@
                 // Display a message if no match is found
                 echo "<p>No matching order found.</p>";
             }
-
+/*
             // Query to calculate the total of all orders made by a specific user
             $sqlTotal = "SELECT SUM(Total) AS GrandTotal FROM PlacedOrder WHERE Email = :email";
             $stmtTotal = $pdo->prepare($sqlTotal);
@@ -67,7 +78,7 @@
             // Display the total for all orders made by the user
             echo "<p>Grand Total for All Orders: $grandTotal</p>";
             echo "<p>All the money you have given to us. For now...,</p>";
-
+*/
 
             
         } catch (PDOException $e) {
