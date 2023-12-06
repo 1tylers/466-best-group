@@ -64,9 +64,9 @@
 */
 
             // Prepare and execute SQL query with JOIN
-            $sql = "SELECT PlacedOrder.TrackingNo, PlacedOrder.Status, Order.Total 
+            $sql = "SELECT PlacedOrder.TrackingNo, PlacedOrder.Status, Orders.Total 
                     FROM PlacedOrder 
-                    JOIN Order ON PlacedOrder.OrderID = Order.OrderID 
+                    JOIN Orders ON PlacedOrder.OrderID = Orders.OrderID 
                     WHERE PlacedOrder.OrderID = :orderID AND PlacedOrder.Email = :email";
             
             $statement = $pdo->prepare($sql);
@@ -81,7 +81,7 @@
                 $row = $statement->fetch(PDO::FETCH_ASSOC);
                 $trackingNumber = $row['TrackingNo'];
                 $status = $row['Status'];
-                $total = $rowOrder['Total'];
+                $total = $row['Total'];
 
                 // Display the tracking number
                 echo "<p>Tracking Number: $trackingNumber</p>";
