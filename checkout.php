@@ -51,8 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $insertProductSQL = "INSERT INTO ProductStored (OrderID, ProductID, Quantity) 
                                      VALUES ('$orderID', '$product_id', '$quantity')";
                 $pdo->query($insertProductSQL);
-		$updateProductSQL = "UPDATE Product SET Quantity = Quantity - '$quantity' WHERE ProductID = '$product_id'";
-    		$pdo->query($updateProductSQL);
+                $updateProductSQL = "UPDATE Product SET Quantity = Quantity - '$quantity' WHERE ProductID = '$product_id'";
+                $pdo->query($updateProductSQL);
             }
 
             $pdo->query($insertPlacedOrderSQL);
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_destroy();
 
             echo "<h1>Thanks for your purchase!</h1>";
-
+            echo "<a href=\"website.php\">HOME</a>";
             exit();
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
@@ -133,3 +133,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 </body>
 </html>
+    
+    
