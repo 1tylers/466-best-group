@@ -49,7 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<th>Price </th>";
         echo "<th>Total </th>";
         echo "</tr>";
-
+        if (!isset($_SESSION["Add"])) {
+        $_SESSION["Add"] = [];
+    }
         foreach ($_SESSION['Add'] as $product_id => $quantity) {
             $sql = "SELECT Quantity, Description, Price FROM Product WHERE ProductID=$product_id";
             $result = $pdo->query($sql);
@@ -57,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($result->rowCount() > 0) {
                 $row = $result->fetch(PDO::FETCH_ASSOC);
                 $availableQuantity=$row['Quantity'];
-                $description = $row['Name'];
+                $description = $row['Description'];
                 $price = $row['Price'];
                 $totalItem = $quantity * $price;
                 $total += $totalItem;
@@ -77,6 +79,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<tr>";
     echo "<td> Total:</td>";
     echo "<td> $total</td>";
+    echo "<td> Total Items:</td>";
+    echo "<td> $items</td>";
     echo "</tr>";
     echo "</table>";
     ?>
