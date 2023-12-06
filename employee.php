@@ -12,15 +12,14 @@
       echo "Connection to database failed: " . $e->getMessage();
   }
 
-
-    $sql = "SELECT ProductID, Description, Quantity FROM Product;";
+    $sql = "SELECT ProductID, Name, Quantity FROM Product;";
     $result = $pdo->query($sql);
   ?>
 
   <table border = 1>
     <tr>
       <th>ID</th>
-      <th>Description</th>
+      <th>Name</th>
       <th>Quantity</th>
     </tr>
 
@@ -30,7 +29,7 @@
       {
         echo "<tr>";
         echo "<td>{$row['ProductID']}</td>";
-        echo "<td>{$row['Description']}</td>";
+        echo "<td>{$row['Name']}</td>";
         echo "<td>{$row['Quantity']}</td>";
         echo "</tr>";
       }
@@ -67,7 +66,6 @@
   <form method ="POST">
     <label for="TrackingNo">Update Status:</label>
       <input type="text" value="Tracking Number" name="TrackingNo"> Set delivery status to:
-    </label>
 
       <select name="status" id="status">
         <option value="Received">Received</option>
