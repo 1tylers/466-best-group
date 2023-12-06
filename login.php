@@ -17,7 +17,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $EmpID = $_POST["EmpID"];
     $pswd = $_POST["password"];
-    $result = $pdo->query("SELECT * FROM Employees WHERE EmpID = '$EmpID' AND Password = '$pswd'");
+    $result = $pdo->query("SELECT * FROM Employee WHERE EmpID = '$EmpID' AND Password = '$pswd'");
     if ($result->rowCount() > 0) {
         header("Location: employee.php?login=success");
         exit();
