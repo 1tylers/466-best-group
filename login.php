@@ -31,8 +31,39 @@
 <html>
 <head>
     <title>Login Page</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #643843">
+   	 		<a class="navbar-brand" href="website.php">Funky Shop</a>
+    		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        		<span class="navbar-toggler-icon"></span>
+    		</button>
+    		<div class="collapse navbar-collapse" id="navbarNav">
+        		<ul class="navbar-nav ml-auto">
+            		<li class="nav-item">
+                		<a class="nav-link" href="website.php">Home</a>
+            		</li>
+            		<li class="nav-item active">
+               			 <a class="nav-link" href="login.php">Employee Login</a>
+            		</li>
+            		<li class="nav-item">
+                		<a class="nav-link" href="trackOrder.php">Track Your Order</a>
+            		</li>
+            		<li class="nav-item">
+                		<a class="nav-link" href="cartPage.php">Cart</a>
+        			</li>
+        		</ul>
+    		</div>
+		</nav>
+
+		<!-- Bootstrap JS and dependencies -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <h2>Login</h2>
     
     <?php
