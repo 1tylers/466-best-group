@@ -48,8 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Insert product information into the Product table
             foreach ($_SESSION['Add'] as $product_id => $quantity) {
-                $insertProductSQL = "INSERT INTO ProductStored (OrderID, ProductID) 
-                                     VALUES ('$orderID', '$product_id')";
+                $insertProductSQL = "INSERT INTO ProductStored (OrderID, ProductID, Quantity) 
+                                     VALUES ('$orderID', '$product_id', '$quantity')";
                 $pdo->query($insertProductSQL);
             }
 
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_unset();
             session_destroy();
 
-            echo "<h1>Thanks for your purchase!</h1>";
+            echo "<h1>Thanks for your purchase!</h1> Total: ";
 
             exit();
         } catch (PDOException $e) {
@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <h2>Checkout</h2>
-
+    <p>Total: <?php echo isset($_SESSION['total']) ? $_SESSION['total'] : 0; ?></p>
     <form action="checkout.php" method="post">
         <label for="name">Name:</label>
         <input type="text" name="name" required><br>
@@ -99,4 +99,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 </body>
 </html>
-
