@@ -53,13 +53,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["Add"] = [];
     }
         foreach ($_SESSION['Add'] as $product_id => $quantity) {
-            $sql = "SELECT Quantity, Description, Price FROM Product WHERE ProductID=$product_id";
+            $sql = "SELECT Quantity, Name, Price FROM Product WHERE ProductID=$product_id";
             $result = $pdo->query($sql);
 
             if ($result->rowCount() > 0) {
                 $row = $result->fetch(PDO::FETCH_ASSOC);
                 $availableQuantity=$row['Quantity'];
-                $description = $row['Description'];
+                $description = $row['Name'];
                 $price = $row['Price'];
                 $totalItem = $quantity * $price;
                 $total += $totalItem;
