@@ -51,6 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $insertProductSQL = "INSERT INTO ProductStored (OrderID, ProductID, Quantity) 
                                      VALUES ('$orderID', '$product_id', '$quantity')";
                 $pdo->query($insertProductSQL);
+		$updateProductSQL = "UPDATE Product SET Quantity = Quantity - '$quantity' WHERE ProductID = '$product_id'";
+    		$pdo->query($updateProductSQL);
             }
 
             $pdo->query($insertPlacedOrderSQL);
