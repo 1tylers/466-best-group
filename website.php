@@ -40,7 +40,11 @@ if (isset($_POST["Add"])) {
     }//end of while loop
 
     //check if quantity is valid
-    if ($qtyCheck >= (($_SESSION["Add"][$product_id]+$qty)))
+    if($qty==0)
+    {
+      echo "Error: can not ad 0 items to cart";
+    }
+    else if ($qtyCheck >= (($_SESSION["Add"][$product_id]+$qty)))
     {
      $_SESSION["Add"][$product_id] += $qty;
       header("location:cartPage.php");
@@ -159,7 +163,7 @@ if (isset($_POST["Add"])) {
 
 							//fill row with data
 							echo "<td> {$row['Name']} </td>";
-							echo "<td> {$row['Price']} </td>";
+							echo "<td> $ {$row['Price']} </td>";
 
 							//get the ProductID
 							$PID = $row['ProductID'];
@@ -194,6 +198,16 @@ if (isset($_POST["Add"])) {
 
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
 
 
