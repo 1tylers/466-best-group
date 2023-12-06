@@ -90,9 +90,10 @@
         $result = $pdo->query("SELECT * FROM Product WHERE ProductID=$product_id ");
         if ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             // Display product information
-            echo "<h1>{$row['Description']}</h1>";
+            echo "<h1>{$row['Name']}</h1>";
             echo "<p>Product ID: {$row['ProductID']}</p>";
             echo "<p>Available: {$row['Quantity']}</p>";
+            echo "<p>Price: $ {$row['Price']}</p>";
             echo "<p>Description: {$row['Description']}</p>";
             
             echo "<form method='POST' action='description.php'>";
@@ -108,4 +109,5 @@
     <a href="website.php">Back to Product List</a>
 </body>
 </html>
+
 
