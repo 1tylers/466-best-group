@@ -99,8 +99,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<td>$description</td> ";
                echo "<td><input type='number' name='quantity[$product_id]' value='$quantity' min='1' max='$availableQuantity'></td>";
 
-                echo "<td>$price </td>";
-                echo "<td>$totalItem </td>";
+                echo "<td>$ $price </td>";
+                echo "<td>$ $totalItem </td>";
                 echo "<td><button type='submit' name='delete' value='$product_id'>X</button></td>";
                 echo "</tr>";
             }
@@ -126,5 +126,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
   </body>
 </html>
+
 
 
