@@ -82,7 +82,7 @@ if (isset($_POST["Add"])) {
     		<div class="collapse navbar-collapse" id="navbarNav">
         		<ul class="navbar-nav ml-auto">
             		<li class="nav-item active">
-                		<a class="nav-link" href="website.php">Home <span class="sr-only">(current)</span></a>
+                		<a class="nav-link" href="website.php">Home</a>
             		</li>
             		<li class="nav-item">
                			 <a class="nav-link" href="login.php">Employee Login</a>
@@ -138,56 +138,63 @@ if (isset($_POST["Add"])) {
 		<br>
 		<h2> Product List </h2>
 		<!--- Execute Query --->
-		<?php
-			$result = $pdo->query("SELECT * FROM Product WHERE Quantity > 0");
+		<div class="center-container">
+			<div class="table-center">
+			<?php
+				$result = $pdo->query("SELECT * FROM Product WHERE Quantity > 0");
 
-			echo "<table>";
+				echo "<table>";
 
-				//print out the headers of the table
-				echo "<tr>";
-					echo "<th> NAME </th>";
-					echo "<th> PRICE </th>";
-					echo "<th> QUANTITY </th>";
-				echo "</tr>";
-
-				while ($row = $result->fetch(PDO::FETCH_ASSOC))
-				{
-					//create a new row
+					//print out the headers of the table
 					echo "<tr>";
-
-						//fill row with data
-						echo "<td> {$row['Name']} </td>";
-						echo "<td> {$row['Price']} </td>";
-
-						//get the ProductID
-						$PID = $row['ProductID'];
-            $availableQuantity=$row['Quantity'];
-						//form to get the quantity to add to cart
-						echo "<form method='POST' action='website.php'>";
-							echo "<input type='hidden' name='product_id' value='$PID'/>";
-              echo "<td><input type='number' name='quantity' value='quantity' min='1' max='$availableQuantity'></td>";
-							//echo "<td> <input type='text' name='quantity'/> </td>";
-							echo "<td> <input type='submit' name='Add' value='ADD'/> </td>";
-						echo "</form>";
-              echo "<form method='GET' action='description.php'>";
-              echo "<input type='hidden' name='product_id' value='$PID'/>";
-              echo "<td><input type='submit' name='view_description' value='View Description' /></td>";
-              echo "</form>";
-					//close the row
+						echo "<th> NAME </th>";
+						echo "<th> PRICE </th>";
+						echo "<th> QUANTITY </th>";
 					echo "</tr>";
 
-					//increment the rows
-					$row++;
-				} //end of while loop
+					while ($row = $result->fetch(PDO::FETCH_ASSOC))
+					{
+						//create a new row
+						echo "<tr>";
 
-			//close the table
-			echo "</table>";
-		?>
+							//fill row with data
+							echo "<td> {$row['Name']} </td>";
+							echo "<td> {$row['Price']} </td>";
+
+							//get the ProductID
+							$PID = $row['ProductID'];
+	            $availableQuantity=$row['Quantity'];
+							//form to get the quantity to add to cart
+							echo "<form method='POST' action='website.php'>";
+								echo "<input type='hidden' name='product_id' value='$PID'/>";
+	              echo "<td><input type='number' name='quantity' value='quantity' min='1' max='$availableQuantity'></td>";
+								//echo "<td> <input type='text' name='quantity'/> </td>";
+								echo "<td> <input type='submit' name='Add' value='ADD'/> </td>";
+							echo "</form>";
+	              echo "<form method='GET' action='description.php'>";
+	              echo "<input type='hidden' name='product_id' value='$PID'/>";
+	              echo "<td><input type='submit' name='view_description' value='View Description' /></td>";
+	              echo "</form>";
+						//close the row
+						echo "</tr>";
+
+						//increment the rows
+						$row++;
+					} //end of while loop
+
+				//close the table
+				echo "</table>";
+			?>
+			</div>
+		</div>
 
 		<!--- Get Input --->
 
+		<br><br>
+
 	</body>
 </html>
+
 
 
 
