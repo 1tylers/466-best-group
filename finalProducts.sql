@@ -21,6 +21,5 @@ VALUES
 ('54256586', '45', 'McDonalds Cheeseburger', 'I just stole this from McDonalds, so hopefully I do not get in trouble for selling this', '10.99'),
 ('59874565', '86', 'Aarons Glasses', 'AGH WHO STOLE MY GLASSES I CANNOT SEE', '20.00');
 
-INSERT INTO USER
-VALUES (
-'YippeeSkippee69@yahoo.com', '8659721617', 'Sully');
+INSERT INTO User VALUES('joshsmith@gmail.com', '8156872541', 'Josh Smith'), ('mjordan@gmail.com', '7042268722', 'Michael Jordan'), ('IAmCSCI240@gmail.com', '1112223333', 'Parker'),
+('realperson@gmail.com', '8158974211', 'Silly Goose'), ('YippeeSkippee69@yahoo.com', '8659721617', 'Sully');
