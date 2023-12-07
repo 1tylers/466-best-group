@@ -20,3 +20,7 @@ VALUES
 ('74921439', '30', 'Number 2 Pencils', 'Basic pencil except we put the price up because I want more money', '25.99'),
 ('54256586', '45', 'McDonalds Cheeseburger', 'I just stole this from McDonalds, so hopefully I do not get in trouble for selling this', '10.99'),
 ('59874565', '86', 'Aarons Glasses', 'AGH WHO STOLE MY GLASSES I CANNOT SEE', '20.00');
+
+INSERT INTO USER
+VALUES (
+'YippeeSkippee69@yahoo.com', '8659721617', 'Sully');
