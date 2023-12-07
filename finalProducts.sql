@@ -24,7 +24,7 @@ VALUES
 INSERT INTO User VALUES('joshsmith@gmail.com', '8156872541', 'Josh Smith'), ('mjordan@gmail.com', '7042268722', 'Michael Jordan'), ('IAmCSCI240@gmail.com', '1112223333', 'Parker'),
 ('realperson@gmail.com', '8158974211', 'Silly Goose'), ('YippeeSkippee69@yahoo.com', '8659721617', 'Sully');
 
-INSERT INTO ORDER
+INSERT INTO ORDERS
 VALUES('20283745', '178 Ooga Booga Blvd', '16.94', '1234567891234567', '12/25/2023', '6', 'YippeeSkippee69@yahoo.com'),
 ('56846658', '1450 W Northern St', '128.99', '6549875341654135', '11/17/2023', '5', 'joshsmith@gmail.com'),
 ('14283745', '1201 Apple Tree rd', '293.94', '4235759062038462', '11/30/2023', '4', 'mjordan@gmail.com'),
