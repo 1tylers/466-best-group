@@ -1,0 +1,36 @@
+Entities:
+  Employee- A table of employees is necessary to be included in order to store there data, and give them a way to uniquely
+login to an "employee view" of the website.
+Attributes: EmpID, Password
+
+  Products- Data on different kinds of products, quantity, and other descriptors would be necessary to keep track of for inventory and delivery purposes.
+Attributes: ProductID, Price, Quantity, Description, Name
+
+  User- Information on the user will need to be stored for checkout/delivery purposes.
+Attributes:PhoneNo, Email, Name
+
+  Order- All information from an order will need to be kept for records and inventory. Past orders should be able to be accessed.
+Attributes: OrderID, Address, Total, BillingInfo, ItemCount, Date, *Email
+
+
+Relationships:
+
+  User-Order: Orders will be placed on the website by users, many different orders can be placed by one user. An instance of a user placing an order creates a tracking number and a status that can be updated.
+
+  Products-Order: There will be many orders placed on the website containing many different products. Products attempting to be ordered will be placed into a cart.
+
+
+Schema:
+    Employee(EmpID, Password)
+
+    User(Email, Phone, Name)
+
+    Product(ProductID, Name, Quantity, Description, Price)
+
+    Order(OrderID, Address, Total, BillingInfo, Date, ItemCount, *Email)
+
+    PlacedOrder(*Email, *OrderID, TrackingNo, Status)
+
+    ProductStored(*OrderID, *ProductID, Quantity)
+
+*Foreign key
