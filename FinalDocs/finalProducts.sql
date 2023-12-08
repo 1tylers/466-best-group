@@ -33,6 +33,9 @@ VALUES('20283745', '178 Ooga Booga Blvd', '80.94', '1234567891234567', '2023-12-
 
 INSERT INTO PlacedOrder
     VALUES  ('mjordan@gmail.com', '14283745', '432156', 'Shipped'),
+            ('joshsmith@gmail.com', '45612358', '584978', 'Received'),
+            ('IAmCSCI240@gmail.com', '62145888', '221487', 'Received'),
+            ('realperson@gmail.com', '88994621', '458463', 'Received'),
             ('YippeeSkippee69@yahoo.com', '20283745', '197564', 'Shipped');
 
 INSERT INTO ProductStored
