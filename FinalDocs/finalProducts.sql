@@ -25,17 +25,20 @@ INSERT INTO User VALUES('joshsmith@gmail.com', '8156872541', 'Josh Smith'), ('mj
 ('realperson@gmail.com', '8158974211', 'Silly Goose'), ('YippeeSkippee69@yahoo.com', '8659721617', 'Sully');
 
 INSERT INTO Orders
-VALUES('20283745', '178 Ooga Booga Blvd', '16.94', '1234567891234567', '2023-12-25', '6', 'YippeeSkippee69@yahoo.com'),
+VALUES('20283745', '178 Ooga Booga Blvd', '80.94', '1234567891234567', '2023-12-25', '6', 'YippeeSkippee69@yahoo.com'),
 ('56846658', '1450 W Northern St', '128.99', '6549875341654135', '2023-11-17', '5', 'joshsmith@gmail.com'),
 ('14283745', '1201 Apple Tree rd', '293.94', '4235759062038462', '2023-11-30', '4', 'mjordan@gmail.com'),
 ('19283745', '123 Fake St', '519.80', '1234789064038162', '2023-11-25', '20', 'IAmCSCI240@gmail.com'),
 ('84738502', '777 Road Rd', '139.99', '6543215965412356', '2023-10-3', '7', 'realperson@gmail.com');
 
 INSERT INTO PlacedOrder
-    VALUES ('mjordan@gmail.com', '14283745', '432156', 'Shipped');
+    VALUES  ('mjordan@gmail.com', '14283745', '432156', 'Shipped'),
+            ('YippeeSkippee69@yahoo.com', '20283745', '197564', 'Shipped');
 
 INSERT INTO ProductStored
     VALUES ('14283745', '11238962', '1'),
            ('14283745', '13457495', '1'),
            ('14283745', '28483748', '1'),
-           ('14283745', '47392804', '1');
+           ('14283745', '47392804', '1'),
+           ('20283745', '80439254', '1'),
+           ('20283745', '80439256', '5');
